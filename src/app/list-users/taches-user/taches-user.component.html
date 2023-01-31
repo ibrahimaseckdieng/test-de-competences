@@ -1,0 +1,25 @@
+<section style="background-color: #3da2c3;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+            <p class="mb-2"><span class="h2 me-2">{{user.name}}</span> <span
+              class="badge bg-danger">Todos</span></p>
+            <p class="text-muted pb-2">{{user.email}}</p>
+
+            <ul class="list-group rounded-0">
+              <li class="list-group-item border-0 d-flex align-items-center ps-0"
+                  *ngFor="let todo of userTodos | paginate: { itemsPerPage: 8, currentPage: p }">
+                <input class="form-check-input me-3" type="checkbox" value="" aria-label="..." [checked]="todo.completed" disabled/>
+                <s *ngIf="todo.completed == true">{{todo.title}}</s>
+                <span *ngIf="todo.completed == false">{{todo.title}}</span>
+              </li>
+            </ul>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

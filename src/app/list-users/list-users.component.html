@@ -1,0 +1,29 @@
+<div class="container">
+  <section class="mx-auto col-lg-4" *ngFor="let user of listUsers" style="display: inline-block; float: left">
+    <div class="card testimonial-card mt-2 mb-3">
+      <div class="card-up aqua-gradient"></div>
+      <div class="avatar mx-auto white">
+        <img src="https://picsum.photos/536/354?{{user.id}}" class="rounded-circle img-fluid"
+             alt="woman avatar">
+      </div>
+      <div class="card-body text-center">
+        <h4 class="card-title font-weight-bold">{{user.name}}</h4>
+        <i class="fa-solid fa-envelope"></i>&nbsp;
+        <small>{{user.email}}</small><br>
+        <i class="fa-solid fa-phone"></i>&nbsp;
+        <small>{{user.phone}}</small><br>
+        <i class="fa-solid fa-location-dot"></i>&nbsp;
+        <small>{{user.address.city}}, {{user.address.street}}, {{user.address.suite}}</small>
+        <hr>
+        <h6>Informations Company</h6>
+        <p>
+          <i class="fa-solid fa-building"></i>&nbsp;
+          <small>{{user.company.name}}</small><br>
+          <i class="fas fa-quote-left"></i>&nbsp;
+          <small>{{user.company.catchPhrase}}</small>&nbsp;<i class="fas fa-quote-right"></i>
+        </p>
+        <button type="button" class="btn btn-info" (click)="voirDetailsUser(user.id)">Voir les détails</button>
+      </div>
+    </div>
+  </section>
+</div>
